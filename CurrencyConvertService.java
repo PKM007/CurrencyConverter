@@ -9,6 +9,6 @@ public interface CurrencyConvertService {
 
 
         @GET("/api/v6/convert")
-        Call<CurrencyConvert> getCoverted(@Query("q") String number);
+        Call<CurrencyConvert> getConverted(@Query("q") String number);
 
 }
