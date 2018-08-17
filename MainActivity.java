@@ -70,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<CurrencyConvert> call, Response<CurrencyConvert> response) {
                 CurrencyConvert currencyConvert = response.body();
                 count.setText(""+currencyConvert.query.count);
-                id.setText(currencyConvert.results.USD_INR.ID);
-                value.setText(""+currencyConvert.results.USD_INR.converted_value);
-                to.setText(currencyConvert.results.USD_INR.convert_to);
-                from.setText(currencyConvert.results.USD_INR.convert_from);
+                id.setText(currencyConvert.results.USD_INR.id);
+                value.setText(""+currencyConvert.results.USD_INR.val);
+                to.setText(currencyConvert.results.USD_INR.to);
+                from.setText(currencyConvert.results.USD_INR.fr);
 
             }
 
