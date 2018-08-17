@@ -12,7 +12,7 @@ class Query {
 }
 
 class Result{
-    UsdInr usdInr;
+    UsdInr USD_INR;
 }
 
 class UsdInr{
