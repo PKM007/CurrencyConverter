@@ -22,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
     EditText from_to;
     Button submit;
-    TextView id, value, to, from;
+    TextView count,id, value, to, from;
     private String con_val="";
+    private String count_val="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         View popupView = getLayoutInflater().inflate(R.layout.activity_main, null);
         from_to =popupView.findViewById(R.id.fromto);
         submit =popupView.findViewById(R.id.submit);
+        count=popupView.findViewById(R.id.count);
         id =popupView.findViewById(R.id.id);
         value =popupView.findViewById(R.id.value);
         to =popupView.findViewById(R.id.to);
@@ -69,11 +71,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<CurrencyConvert> call, Response<CurrencyConvert> response) {
                 CurrencyConvert currencyConvert = response.body();
-                con_val= String.format("%f",currencyConvert.converted_value);
-                id.setText(currencyConvert.ID);
+                con_val= String.format("%f",currencyConvert.results.usdInr.converted_value);
+                count_val=String.format("%d",currencyConvert.query.count);
+                count.setText(count_val);
+                id.setText(currencyConvert.results.usdInr.ID);
                 value.setText(con_val);
-                to.setText(currencyConvert.convert_to);
-                from.setText(currencyConvert.convert_from);
+                to.setText(currencyConvert.results.usdInr.convert_to);
+                from.setText(currencyConvert.results.usdInr.convert_from);
 
             }
 
