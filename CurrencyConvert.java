@@ -5,7 +5,6 @@ import android.app.DownloadManager;
 public class CurrencyConvert {
     Query query;
     Result results;
-}
 
 class Query {
     Integer count;
@@ -20,5 +19,6 @@ class UsdInr{
     Double converted_value;
     String convert_to;
     String convert_from;
+}
 }
 
