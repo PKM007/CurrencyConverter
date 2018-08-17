@@ -23,9 +23,7 @@ public class MainActivity extends AppCompatActivity {
     EditText from_to;
     Button submit;
     TextView count,id, value, to, from;
-    private String con_val="";
-    private String count_val="";
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,11 +69,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<CurrencyConvert> call, Response<CurrencyConvert> response) {
                 CurrencyConvert currencyConvert = response.body();
-                con_val= String.format("%f",currencyConvert.results.usdInr.converted_value);
-                count_val=String.format("%d",currencyConvert.query.count);
-                count.setText(count_val);
+                count.setText(""+currencyConvert.query.count);
                 id.setText(currencyConvert.results.usdInr.ID);
-                value.setText(con_val);
+                value.setText(""+currencyConvert.results.usdInr.converted_value);
                 to.setText(currencyConvert.results.usdInr.convert_to);
                 from.setText(currencyConvert.results.usdInr.convert_from);
 
